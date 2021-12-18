@@ -1,0 +1,15 @@
+appname: test
+port: 8080
+
+dbname: test
+dbip: localhost
+dbport: 5432
+dbuser: tester
+dbpass: mySuperPass
+dbretrycount: 5
+
+currencyhost: "http://api.currencylayer.com"
+currencyaccesskey: "76d037eb3c53eaeb6b9e6ddc54463bd3"
+currencysubcription: true
+
+allowinsecurecert: true
