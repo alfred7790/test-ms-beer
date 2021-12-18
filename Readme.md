@@ -107,3 +107,13 @@ $ docker-compose up -d psl
 ```shell
   $ docker-compose down
 ```
+
+# Dependencies
+If you get an error with swagger or with another package, try this:
+```shell
+$ make dep
+```
+Or
+```shell
+$ go mod tidy && go get -u github.com/swaggo/swag/cmd/swag
+```

@@ -1,11 +1,12 @@
 PKG_LIST = `go list ./... | grep -v /vendor`
 
 .PHONY: all
-all: | db dep test build deploy
+all: | db test build deploy
 
 .PHONY: dep
 dep:
 	go mod tidy
+	go get -u github.com/swaggo/swag/cmd/swag
 
 .PHONY: db
 db:

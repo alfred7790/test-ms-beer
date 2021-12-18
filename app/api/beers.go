@@ -170,7 +170,7 @@ func (app *API) GetBoxPrice(c *gin.Context) {
 			utilities.Failure("currency error", err.Error(), http.StatusBadRequest, c)
 			return
 		}
-		boxPrice.AddPrice(currency, resp.Info.Quote, resp.Result)
+		boxPrice.AddPrice(currency, utilities.ToFixed(resp.Info.Quote, 2), utilities.ToFixed(resp.Result, 2))
 	} else {
 		resp, err = app.AppEnv.CurrencyHandler.Live()
 		if err != nil {
@@ -178,10 +178,10 @@ func (app *API) GetBoxPrice(c *gin.Context) {
 			return
 		}
 
-		boxPrice.AddPrice("AUD", resp.Quotes.USDAUD, utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDAUD * float64(quantity), 2))
-		boxPrice.AddPrice("CAD", resp.Quotes.USDCAD, utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDCAD * float64(quantity), 2))
-		boxPrice.AddPrice("PLN", resp.Quotes.USDPLN, utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDPLN * float64(quantity), 2))
-		boxPrice.AddPrice("MXN", resp.Quotes.USDMXN, utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDMXN * float64(quantity), 2))
+		boxPrice.AddPrice("AUD", utilities.ToFixed(resp.Quotes.USDAUD, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDAUD * float64(quantity), 2))
+		boxPrice.AddPrice("CAD", utilities.ToFixed(resp.Quotes.USDCAD, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDCAD * float64(quantity), 2))
+		boxPrice.AddPrice("PLN", utilities.ToFixed(resp.Quotes.USDPLN, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDPLN * float64(quantity), 2))
+		boxPrice.AddPrice("MXN", utilities.ToFixed(resp.Quotes.USDMXN, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDMXN * float64(quantity), 2))
 	}
 
 	c.JSON(http.StatusOK, boxPrice)
