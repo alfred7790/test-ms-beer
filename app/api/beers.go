@@ -46,7 +46,6 @@ func (app *API) CreateBeer(c *gin.Context) {
 	c.JSON(http.StatusCreated, input)
 }
 
-
 // UpdateABeer update a beer
 // @Summary returns details about a beer was updated
 // @Description Used to update the beer's info
@@ -145,7 +144,6 @@ func (app *API) GetBoxPrice(c *gin.Context) {
 		return
 	}
 
-
 	beerId, err := strconv.Atoi(id)
 	if err != nil {
 		utilities.Failure("The BeerID should be a number", err.Error(), http.StatusBadRequest, c)
@@ -161,7 +159,7 @@ func (app *API) GetBoxPrice(c *gin.Context) {
 	}
 
 	boxPrice := beer.GetBeerBox(uint(quantity))
-	boxPrice.AddPrice("USD", beer.UnitPrice, float64(quantity) * beer.UnitPrice)
+	boxPrice.AddPrice("USD", utilities.ToFixed(beer.UnitPrice, 2), utilities.ToFixed(float64(quantity)*beer.UnitPrice, 2))
 
 	var resp *currencylayer.CurrencyResponse
 	if config.Config.CurrencySubcription {
@@ -178,10 +176,10 @@ func (app *API) GetBoxPrice(c *gin.Context) {
 			return
 		}
 
-		boxPrice.AddPrice("AUD", utilities.ToFixed(resp.Quotes.USDAUD, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDAUD * float64(quantity), 2))
-		boxPrice.AddPrice("CAD", utilities.ToFixed(resp.Quotes.USDCAD, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDCAD * float64(quantity), 2))
-		boxPrice.AddPrice("PLN", utilities.ToFixed(resp.Quotes.USDPLN, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDPLN * float64(quantity), 2))
-		boxPrice.AddPrice("MXN", utilities.ToFixed(resp.Quotes.USDMXN, 2), utilities.ToFixed(beer.UnitPrice * resp.Quotes.USDMXN * float64(quantity), 2))
+		boxPrice.AddPrice("AUD", utilities.ToFixed(resp.Quotes.USDAUD, 2), utilities.ToFixed(beer.UnitPrice*resp.Quotes.USDAUD*float64(quantity), 2))
+		boxPrice.AddPrice("CAD", utilities.ToFixed(resp.Quotes.USDCAD, 2), utilities.ToFixed(beer.UnitPrice*resp.Quotes.USDCAD*float64(quantity), 2))
+		boxPrice.AddPrice("PLN", utilities.ToFixed(resp.Quotes.USDPLN, 2), utilities.ToFixed(beer.UnitPrice*resp.Quotes.USDPLN*float64(quantity), 2))
+		boxPrice.AddPrice("MXN", utilities.ToFixed(resp.Quotes.USDMXN, 2), utilities.ToFixed(beer.UnitPrice*resp.Quotes.USDMXN*float64(quantity), 2))
 	}
 
 	c.JSON(http.StatusOK, boxPrice)

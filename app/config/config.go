@@ -24,6 +24,8 @@ type Settings struct {
 	CurrencyAccessKey   string `default:"76d037eb3c53eaeb6b9e6ddc54463bd3"`
 	CurrencySubcription bool   `default:"false"`
 	AllowInsecureCert   bool   `default:"true"`
+
+	DebugMode bool `default:"true"`
 }
 
 var Config = Settings{}

@@ -2,16 +2,18 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
 	"net/http"
 	"testproyect/app/api"
+	"testproyect/app/config"
 	"testproyect/app/env"
-	_ "testproyect/docs"
 )
 
 func InitRouter(app *env.AppEnv) *gin.Engine {
-	gin.SetMode(gin.DebugMode)
+	if config.Config.DebugMode {
+		gin.SetMode(gin.DebugMode)
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+	}
 	rootApp := gin.Default()
 
 	rootApp.GET("/", func(c *gin.Context) {
@@ -19,9 +21,7 @@ func InitRouter(app *env.AppEnv) *gin.Engine {
 	})
 
 	r := rootApp.Group("v1")
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-
-	api.AddRoutes(r, app)
+	api.AddRoutesV1(r, app)
 
 	return rootApp
 }

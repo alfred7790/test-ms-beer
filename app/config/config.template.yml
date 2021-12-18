@@ -31,3 +31,5 @@ currencysubcription: <currencysubcription> # default: false
 
 # Auxiliaries for Http Request
 allowinsecurecert: <allowinsecurecert> # default: true
+
+debugmode: <debugmode> # default: true
