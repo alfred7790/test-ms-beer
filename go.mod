@@ -7,7 +7,7 @@ require (
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/jinzhu/configor v1.2.1
 	github.com/jinzhu/gorm v1.9.16
-	github.com/lib/pq v1.2.0 // indirect
+	github.com/lib/pq v1.2.0
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-sqlite3 v1.14.6 // indirect
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
