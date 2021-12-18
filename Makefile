@@ -1,5 +1,5 @@
 .PHONY: all
-all: | build deploy
+all: | db build deploy
 
 .PHONY: db
 db:

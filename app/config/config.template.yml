@@ -1,15 +1,33 @@
-appname: test
-port: 8080
+# Use this template to create config.yml file
+# at the root of the project at the same level as main.go
 
-dbname: test
-dbip: localhost
-dbport: 5432
-dbuser: tester
-dbpass: mySuperPass
-dbretrycount: 5
+# All of this fields have default values,
+# only for making this easier to you
+# But you can modify all of this fields if you need to do it
 
-currencyhost: "http://api.currencylayer.com"
-currencyaccesskey: "76d037eb3c53eaeb6b9e6ddc54463bd3"
-currencysubcription: true
+# Aplication service
+appname: <appname> # default: test
+port: <port>  # default: 8080
 
-allowinsecurecert: true
+# Credentials of the db
+dbname: <dbname> # default: test
+dbip: <dbip> # default: localhost
+dbport: <dbport> # default: 5432
+dbuser: <dbuser> # default: tester
+dbpass: mySuperPass # default: mySuperPass
+# Number of times that we are going to try connecting to the db
+dbretrycount: 5 # default: 1
+
+
+# Config for CurrencyLayer API
+# You can use my AccessKey, it's a free one
+# AccessKey: 76d037eb3c53eaeb6b9e6ddc54463bd3
+# I'll delete this access after you review this project
+currencyhost: <currencyhost> # Default: http://api.currencylayer.com
+currencyaccesskey: <currencyaccesskey> # default: 76d037eb3c53eaeb6b9e6ddc54463bd3
+# If you have a better AccessKey, you can use this flag to active the currency convert function
+# because my access key only has the api enabled for lives currency
+currencysubcription: <currencysubcription> # default: false
+
+# Auxiliaries for Http Request
+allowinsecurecert: <allowinsecurecert> # default: true
