@@ -78,3 +78,32 @@ $ cp ./app/config/config.template.yml config.yml
 > WARNING! Make sure that if you edit the values about the `DB service`, also you should modify the `docker-compose.yml` file.
 4. Restart the service `using Makefile` or `running Binary`.
 5. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
+
+# Unit Testing
+1. Open the project.
+```shell
+$ cd test
+```
+2. Run test
+```shell
+$ go test ./...
+```
+3. You can use the `Makefile`.
+```shell
+$ make test
+```
+# Up and Down DB service
+- Using `Makefile`.
+```shell
+  $ make db
+```
+```shell
+  $ make db-down
+```
+- Using `docker-compose`
+```shell
+$ docker-compose up -d psl
+```
+```shell
+  $ docker-compose down
+```
