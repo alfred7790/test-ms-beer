@@ -1,0 +1,255 @@
+basePath: /
+definitions:
+  entity.Beer:
+    properties:
+      id:
+        example: 1
+        type: integer
+      name:
+        example: Bohemia
+        type: string
+      sku:
+        example: BHE001
+        type: string
+      unitPrice:
+        example: 1.2
+        type: number
+    type: object
+  entity.BeerBox:
+    properties:
+      id:
+        example: 1
+        type: integer
+      name:
+        example: Bohemia
+        type: string
+      prices:
+        items:
+          $ref: '#/definitions/entity.BeerBoxPrice'
+        type: array
+      quantity:
+        example: 10
+        type: integer
+      sku:
+        example: BHE001
+        type: string
+      unitPrice:
+        example: 1.2
+        type: number
+    type: object
+  entity.BeerBoxPrice:
+    properties:
+      currencyName:
+        example: USD
+        type: string
+      currencyPrice:
+        example: 1.2
+        type: number
+      total:
+        example: 12
+        type: number
+    type: object
+  entity.BeerDTO:
+    properties:
+      name:
+        example: Bohemia
+        type: string
+      sku:
+        example: BHE001
+        type: string
+      unitPrice:
+        example: 1.2
+        type: number
+    type: object
+  entity.BeerList:
+    properties:
+      beers:
+        items:
+          $ref: '#/definitions/entity.Beer'
+        type: array
+      total:
+        example: 100
+        type: integer
+    type: object
+  utilities.FailureResponse:
+    properties:
+      details:
+        example: Error message for developers
+        type: string
+      message:
+        example: Error message for users
+        type: string
+      status:
+        example: failure
+        type: string
+    type: object
+info:
+  contact: {}
+  description: test api
+  title: Test API
+  version: "1.0"
+paths:
+  /v1/beers:
+    get:
+      description: a page and a limit of results per page is optional.
+      parameters:
+      - description: Request page, default 1
+        in: query
+        name: page
+        type: string
+      - description: number of results per page, default 50
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.BeerList'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+      summary: returns a list of paginated beers
+      tags:
+      - Beers
+    post:
+      description: Used to create a new beer
+      parameters:
+      - description: struct to create a new beer
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/entity.BeerDTO'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/entity.Beer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+      summary: returns details about a new beer was created
+      tags:
+      - Beers
+  /v1/beers/{beerid}:
+    get:
+      description: Used to find a beer
+      parameters:
+      - description: Beer ID
+        in: path
+        name: beerid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Beer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+      summary: returns a beer info searching by beerId
+      tags:
+      - Beers
+    put:
+      description: Used to update the beer's info
+      parameters:
+      - description: Beer ID
+        in: path
+        name: beerid
+        required: true
+        type: integer
+      - description: struct to update a beer
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/entity.BeerDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Beer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+      summary: returns details about a beer was updated
+      tags:
+      - Beers
+  /v1/beers/{beerid}/boxprice:
+    get:
+      description: List the price of a box of beer
+      parameters:
+      - description: Beer ID
+        in: path
+        name: beerid
+        required: true
+        type: integer
+      - description: Currency, default USD
+        in: query
+        name: currency
+        type: string
+      - description: Quantity, default 6
+        in: query
+        name: quantity
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.BeerBox'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utilities.FailureResponse'
+      summary: returns a beer info searching by beerId
+      tags:
+      - Beers
+swagger: "2.0"
