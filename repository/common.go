@@ -27,7 +27,7 @@ type Base struct {
 	DBName string
 }
 
-func NewPostgresRepository() Repository {
+func NewPostgresRepository() *Repo {
 	return &Repo{}
 }
 
