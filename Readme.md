@@ -24,17 +24,21 @@ $ git clone git@bitbucket.org:alfred7790/test.git
 ```shell
 $ cd test
 ```
-3. Build and run the service:
+3. Get dependencies:
+```shell
+$ make dep
+```
+4. Build and run the service:
 ```shell
 $ make
 ```
-4. If every thing is ok, you should see something like this:
+5. If every thing is ok, you should see something like this:
 ```shell
 ...
 [GIN-debug] Listening and serving HTTP on :8080
 connected to 'test' database
 ```
-5. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
+6. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
 
 # Quick start - Running Binary
 1. Clone the repo:
@@ -49,21 +53,25 @@ $ cd test
 ```shell
 $ docker-compose up -d psql
 ```
-4. Build the service:
+4. Get dependencies:
+```shell
+$ go mod tidy && go get -u github.com/swaggo/swag/cmd/swag
+```
+5. Build the service:
 ```shell
 $ go build main.go
 ```
-5. Running the service:
+6. Running the service:
 ```shell
 $ ./main
 ```
-6. If every thing is ok, you should see something like this:
+7. If every thing is ok, you should see something like this:
 ```shell
 ...
 [GIN-debug] Listening and serving HTTP on :8080
 connected to 'test' database
 ```
-7. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
+8. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
 
 # Custom Config
 > If you need to change the default values of the configuration.

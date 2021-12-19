@@ -7,6 +7,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/lib/pq"
 	"log"
+	"testproyect/app/config"
 	"testproyect/entity"
 	"time"
 )
@@ -40,6 +41,8 @@ func (r *Repo) Init(dbIP, dbPort, dbUser, dbPass, dbName string, retryCount int)
 	if err != nil {
 		return err
 	}
+
+	r.Base.SQLDB.LogMode(config.Config.DebugMode)
 	return nil
 }
 
