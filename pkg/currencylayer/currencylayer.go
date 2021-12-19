@@ -10,8 +10,10 @@ import (
 	"time"
 )
 
-const converURL = "%s/convert?access_key=%s&from=%s&to=%s&amount=%v"
-const liveURL = "%s/live?access_key=%s&currencies=AUD,CAD,PLN,MXN&format=1"
+const (
+	converURL = "%s/convert?access_key=%s&from=%s&to=%s&amount=%v"
+	liveURL   = "%s/live?access_key=%s&currencies=AUD,CAD,PLN,MXN&format=1"
+)
 
 type CurrencyResponse struct {
 	Success   bool   `json:"success"`
