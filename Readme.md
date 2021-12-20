@@ -115,10 +115,12 @@ $ go test ./...
 $ docker-compose up -d psl
 ```
 ```shell
-  $ docker-compose down
+$ docker-compose down
 ```
 
 # Dependencies
+> Make sure that yout GOPATH is exported.
+
 If you get an error with swagger or with another package, try this:
 ```shell
 $ make dep
