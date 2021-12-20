@@ -15,6 +15,13 @@ To run this project it is necessary to have installed:
 - docker-compose
 - go
 
+# GOPATH is exported?
+Make sure that yout GOPATH is exported.
+```shell
+$ echo $GOPATH
+```
+> To create the API documentation, swagger will be installed in your go directory ($GOPATH).
+
 # Quick start - Using Makefile
 > IMPORTANT! If you have a linux distribution, you will be able to perform this procedure, otherwise I suggest you try another way to run the service.
 1. Clone the repo:
