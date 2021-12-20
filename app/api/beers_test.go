@@ -7,11 +7,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
+	"test-ms-beer/app/env"
+	"test-ms-beer/entity"
+	"test-ms-beer/pkg/models"
+	"test-ms-beer/pkg/utilities"
 	"testing"
-	"testproyect/app/env"
-	"testproyect/entity"
-	"testproyect/pkg/models"
-	"testproyect/pkg/utilities"
 )
 
 func TestAPI_ListBeers(t *testing.T) {

@@ -3,9 +3,9 @@ package app
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"testproyect/app/api"
-	"testproyect/app/config"
-	"testproyect/app/env"
+	"test-ms-beer/app/api"
+	"test-ms-beer/app/config"
+	"test-ms-beer/app/env"
 )
 
 func InitRouter(app *env.AppEnv) *gin.Engine {

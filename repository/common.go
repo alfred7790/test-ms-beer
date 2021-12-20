@@ -7,8 +7,8 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/lib/pq"
 	"log"
-	"testproyect/app/config"
-	"testproyect/entity"
+	"test-ms-beer/app/config"
+	"test-ms-beer/entity"
 	"time"
 )
 

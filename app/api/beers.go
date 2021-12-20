@@ -6,11 +6,11 @@ import (
 	"github.com/jinzhu/gorm"
 	"net/http"
 	"strconv"
-	"testproyect/app/config"
-	"testproyect/entity"
-	"testproyect/pkg/currencylayer"
-	"testproyect/pkg/utilities"
-	"testproyect/repository"
+	"test-ms-beer/app/config"
+	"test-ms-beer/entity"
+	"test-ms-beer/pkg/currencylayer"
+	"test-ms-beer/pkg/utilities"
+	"test-ms-beer/repository"
 )
 
 // CreateBeer create a new beer

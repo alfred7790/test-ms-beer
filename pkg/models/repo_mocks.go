@@ -1,8 +1,8 @@
 package models
 
 import (
-	"testproyect/entity"
-	"testproyect/repository"
+	"test-ms-beer/entity"
+	"test-ms-beer/repository"
 )
 
 type RepositoryMock struct {

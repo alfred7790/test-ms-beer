@@ -5,8 +5,8 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"net/http"
-	"testproyect/app/env"
-	_ "testproyect/docs"
+	"test-ms-beer/app/env"
+	_ "test-ms-beer/docs"
 )
 
 type API struct {

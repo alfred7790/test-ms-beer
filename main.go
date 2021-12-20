@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	appCtx "testproyect/app"
-	"testproyect/app/config"
-	"testproyect/app/env"
-	"testproyect/pkg/currencylayer"
-	"testproyect/pkg/utilities"
-	"testproyect/repository"
+	appCtx "test-ms-beer/app"
+	"test-ms-beer/app/config"
+	"test-ms-beer/app/env"
+	"test-ms-beer/pkg/currencylayer"
+	"test-ms-beer/pkg/utilities"
+	"test-ms-beer/repository"
 )
 
 // @title Test API

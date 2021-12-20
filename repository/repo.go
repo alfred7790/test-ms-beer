@@ -1,6 +1,6 @@
 package repository
 
-import "testproyect/entity"
+import "test-ms-beer/entity"
 
 type Repo struct {
 	Base

@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"testproyect/entity"
+	"test-ms-beer/entity"
 )
 
 func (r *Repo) SaveBeer(beer *entity.Beer) error {

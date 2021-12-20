@@ -1,8 +1,8 @@
 package env
 
 import (
-	"testproyect/pkg/currencylayer"
-	"testproyect/repository"
+	"test-ms-beer/pkg/currencylayer"
+	"test-ms-beer/repository"
 )
 
 type AppEnv struct {
