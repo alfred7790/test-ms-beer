@@ -26,7 +26,8 @@ build: generate
 
 .PHONY: generate
 generate:
-	 $(GOPATH)/bin/swag init
+	@echo "GOPATH is:" $(GOPATH)
+	$(GOPATH)/bin/swag init
 
 .PHONY: test
 test:
