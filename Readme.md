@@ -1,7 +1,8 @@
 # Test API REST
+```shell
 Autor: I.S.C. Edgar Alfred Rodriguez Robles
 E-mail: alfred.7790@gmail.com
-
+```
 # Table of Contents
 [_TOC_]
 
@@ -28,7 +29,7 @@ $ cd test-ms-beer
 ```shell
 $ make
 ```
-6. If every thing is ok, you should see something like this:
+6. If everything is ok, you should see something like this:
 ```shell
 ...
 [GIN-debug] Listening and serving HTTP on :8080
@@ -61,7 +62,7 @@ $ go build main.go
 ```shell
 $ ./main
 ```
-7. If every thing is ok, you should see something like this:
+7. If everything is ok, you should see something like this:
 ```shell
 ...
 [GIN-debug] Listening and serving HTTP on :8080
@@ -84,19 +85,16 @@ $ cp ./app/config/config.template.yml config.yml
 4. Restart the service `using Makefile` or `running Binary`.
 5. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
 
-# Unit Testing
-1. Open the project.
-```shell
-$ cd test-ms-beer
-```
-2. Run test
-```shell
-$ go test ./...
-```
-3. You can use the `Makefile`.
+# Tests
+- Using `Makefile`.
 ```shell
 $ make test
 ```
+- Or try this:
+```shell
+$ go test ./...
+```
+
 # Up and Down DB service
 - Using `Makefile`.
 ```shell
