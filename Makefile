@@ -5,7 +5,6 @@ all: | db test build deploy
 
 .PHONY: dep
 dep:
-	go mod tidy
 	go get -u github.com/swaggo/swag/cmd/swag
 
 .PHONY: db
@@ -22,6 +21,7 @@ db-down:
 
 .PHONY: build
 build: generate
+	go mod tidy
 	go build main.go
 
 .PHONY: generate

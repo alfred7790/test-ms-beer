@@ -18,36 +18,32 @@ To run this project it is necessary to have installed:
 > IMPORTANT! If you have a linux distribution, you will be able to perform this procedure, otherwise I suggest you try another way to run the service.
 1. Clone the repo:
 ```shell
-$ git clone git@bitbucket.org:alfred7790/test.git
+$ git clone git@github.com:alfred7790/test-ms-beer.git
 ```
 2. Open the project
 ```shell
-$ cd test
+$ cd test-ms-beer
 ```
-3. Get dependencies:
-```shell
-$ make dep
-```
-4. Build and run the service:
+5. Build and run the service:
 ```shell
 $ make
 ```
-5. If every thing is ok, you should see something like this:
+6. If every thing is ok, you should see something like this:
 ```shell
 ...
 [GIN-debug] Listening and serving HTTP on :8080
 connected to 'test' database
 ```
-6. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
+7. Go to [swagger docs](http:localhost:8080/v1/swagger/index.html) and have fun.
 
 # Quick start - Running Binary
 1. Clone the repo:
 ```shell
-$ git clone git@bitbucket.org:alfred7790/test.git
+$ git clone git@github.com:alfred7790/test-ms-beer.git
 ```
 2. Open the project
 ```shell
-$ cd test
+$ cd test-ms-beer
 ```
 3. Running the DB service:
 ```shell
@@ -77,7 +73,7 @@ connected to 'test' database
 > If you need to change the default values of the configuration.
 1. Open the project.
 ```shell
-$ cd test
+$ cd test-ms-beer
 ```
 2. Copy the template of the configuration to `config.yml`.
 ```shell
@@ -91,7 +87,7 @@ $ cp ./app/config/config.template.yml config.yml
 # Unit Testing
 1. Open the project.
 ```shell
-$ cd test
+$ cd test-ms-beer
 ```
 2. Run test
 ```shell
@@ -134,3 +130,4 @@ $ go mod tidy && go get -u github.com/swaggo/swag/cmd/swag
   but it is not good practice including database credentials in public files, 
   these values should be placed in an .env file.
 - I didn't include comments about functions because I didn't have enough time.
+- I decided to use GORM because the migrations of structures within the database are much easier to do.
